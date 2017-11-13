@@ -1,4 +1,4 @@
-FROM redwyvern/java-devenv-base
+FROM docker.artifactory.weedon.org.au/redwyvern/java-devenv-base
 MAINTAINER Nick Weedon <nick@weedon.org.au>
 
 
