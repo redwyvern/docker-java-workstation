@@ -21,6 +21,7 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
     libxi6 \
     man \
     less \
+    wireshark \
     && apt-get -q autoremove \
     && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
@@ -30,6 +31,8 @@ USER root
 
 RUN useradd -m developer -G sudo -s /bin/bash \
     && sed -i 's/%sudo[[:space:]]*ALL=(ALL:ALL)[[:space:]]*ALL/%sudo ALL=(ALL:ALL) NOPASSWD:ALL/g' /etc/sudoers
+
+RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
