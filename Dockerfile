@@ -1,6 +1,7 @@
 FROM docker.artifactory.weedon.org.au/redwyvern/java-devenv-base
 MAINTAINER Nick Weedon <nick@weedon.org.au>
 
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Pre-install some utilities needed to install the rest of the software
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
